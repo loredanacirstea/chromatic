@@ -1,7 +1,8 @@
 /* global ComponentSpec:true */
 /* global React StyleguideSpec ReactMeteorData FlowRouter classnames */
-
-const {Chromatic} = Package['mdg:chromatic-api'] || {};
+import React from 'react';
+import { ReactMeteorData } from 'meteor/react-meteor-data';
+const { Chromatic } = Package['mdg:chromatic-api'] || {};
 
 ComponentSpec = React.createClass({
   mixins: [ReactMeteorData],
@@ -33,7 +34,7 @@ ComponentSpec = React.createClass({
     }
     return (
       <div className="styleguide spec-container">
-        <StyleguideSpec entry={entry} specName={specName}/>
+        <StyleguideSpec entry={entry} specName={specName} showControls={entry.showControls} />
       </div>
     );
   }

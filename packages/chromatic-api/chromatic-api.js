@@ -1,10 +1,10 @@
 /* global Chromatic:true */
-/* global React */
+import React from 'react';
 
 /**
  * Chromatic API
  */
-Chromatic = {
+export const Chromatic = {
   /**
    * Constructs a styleguided component entry
    * @param {React.Component} component
@@ -23,7 +23,8 @@ Chromatic = {
     check(options, Match.Optional({
       specs: Match.Optional(Array),
       isPage: Match.Optional(Boolean),
-      name: Match.Optional(String)
+      name: Match.Optional(String),
+      showControls: Match.Optional(Boolean)
     }));
 
     if (options && options.specs && options.isPage) {
@@ -34,6 +35,7 @@ Chromatic = {
     this.component = component;
     this.specs = (options && options.specs) || [Chromatic.defaultSpec()];
     this.isPage = (options && options.isPage) || false;
+    this.showControls = (options && options.showControls) || true;
   },
 
   /**
